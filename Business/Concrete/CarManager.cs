@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,8 +22,9 @@ public CarManager(ICarDal carDal)
         {
             if (car.Description.Length>=2 && car.DailyPrice>0)
             {
-                return new ErrorResult(Messages.NameAndPrice);
+                return new ErrorResult(Messages.UnappropriateNameAndPrice);
             }
+            _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
 
@@ -62,5 +64,12 @@ public CarManager(ICarDal carDal)
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
          }
+
+        public IDataResult<Car> GetById(int id)
+        {
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
+        }
+
+     
     }
 }
