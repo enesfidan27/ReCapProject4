@@ -13,14 +13,62 @@ namespace Console4
         static void Main(string[] args)
         {
             //AddRentals();
+            //AddCustomers();
             //ShowCustomers();
+            //AddUserAndShow();
+            //CarDetails();
+            //ShowColors();
+            CarManager carManager = new CarManager(new EfCarDal());
+            List<Car> cars = new List<Car>
+            {
+              new Car {BrandId=5,ColorId=3,Description="Cybertruck",}
+            };
+        }
+
+        private static void ShowColors()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            var result = colorManager.GetAll();
+            foreach (var color in result.Data)
+            {
+                Console.WriteLine(color.ColorName);
+            }
+        }
+
+        private static void CarDetails()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.GetCarDetails();
+            foreach (var car in result.Data)
+            {
+                Console.WriteLine(car.BrandName + "/" + car.CarName + "/" + car.ColorName + "/" + car.DailyPrice + "TL");
+            }
+        }
+
+        private static void AddUserAndShow()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            List<User> users = new List<User>
+            {
+                new User {FirstName="Enes",LastName="Fidan",Email="enesfidan27@gmail.com",Password="enes67"},
+                new User {FirstName="Hakan",LastName="Fidan",Email="hakanfidan12@gmail.com",Password="hakan12"},
+                new User {FirstName="Serdar",LastName="Aktolga",Email="nacizane112",Password="serdar123"}
+            };
+            foreach (var user in users)
+            {
+                Console.WriteLine(user.FirstName + " " + user.LastName);
+            }
+        }
+
+        private static void AddCustomers()
+        {
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             List<Customer> customers = new List<Customer>
             {
-                new Customer{CustomerId=1,CompanyName="Özfidan Doğalgaz"},
-                new Customer{CustomerId=2,CompanyName="Enes Holding"},
-                new Customer{CustomerId=3,CompanyName="Fidan Emlak"},
-                new Customer{CustomerId=4,CompanyName="BNBÇM Holding"}
+                new Customer{CustomerId=1,CompanyName="ÖzfidanDoğalgaz"},
+                new Customer{CustomerId=2,CompanyName="EnesHolding"},
+                new Customer{CustomerId=3,CompanyName="FidanEmlak"},
+                new Customer{CustomerId=4,CompanyName="BNBÇMHolding"}
             };
             foreach (var customer in customers)
             {
