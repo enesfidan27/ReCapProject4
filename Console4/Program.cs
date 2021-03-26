@@ -21,7 +21,7 @@ namespace Console4
             CarManager carManager = new CarManager(new EfCarDal());
             List<Car> cars = new List<Car>
             {
-              new Car {BrandId=5,ColorId=3,Description="Cybertruck",}
+              new Car {BrandId=5,ColorId=3,CarName="Cybertruck",}
             };
         }
 
@@ -45,7 +45,7 @@ namespace Console4
             }
         }
 
-        private static void AddUserAndShow()
+      /*  private static void AddUserAndShow()
         {
             UserManager userManager = new UserManager(new EfUserDal());
             List<User> users = new List<User>
@@ -100,6 +100,6 @@ namespace Console4
                 rentalManager.Add(rental);
 
             }
-        }
+        }*/
     }
 }

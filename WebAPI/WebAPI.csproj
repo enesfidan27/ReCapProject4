@@ -5,10 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.12" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\5eeb519755427f1684591c2f.jpg" />
+    <None Include="wwwroot\Images\model3.jpg" />
+    <None Include="wwwroot\Images\MX-Social.jpg" />
+    <None Include="wwwroot\Images\porsche-cayenne-s-coupe.jpg" />
   </ItemGroup>
 
 
